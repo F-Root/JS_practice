@@ -26,16 +26,49 @@
     </div>
   </article>
   <footer>
-    <button type="button" onclick="
-      document.querySelector('body').style.backgroundColor = 'black';
-      document.querySelector('body').style.color = 'white';
-    ">day</button>
+    <!-- day & night button -->
+    <h3>day & night button</h3>
     <button type="button" onclick="
       document.querySelector('body').style.backgroundColor = 'white';
       document.querySelector('body').style.color = 'black';
+    ">day</button>
+    <button type="button" onclick="
+      document.querySelector('body').style.backgroundColor = 'black';
+      document.querySelector('body').style.color = 'white';
     ">night</button>
+    <!-- toggle -->
+    <h3>toggle</h3>
+    <button id="toggle" type="button" onclick="
+      //if(document.querySelector('#toggle').innerHTML === 'day') {
+      if(document.querySelector('#toggle').textContent === 'day') {
+        document.querySelector('body').style.backgroundColor = 'black';
+        document.querySelector('body').style.color = 'white';
+        document.querySelector('#toggle').textContent = 'night';
+      } else {
+        document.querySelector('body').style.backgroundColor = 'white';
+        document.querySelector('body').style.color = 'black';
+        document.querySelector('#toggle').textContent = 'day';
+      }
+    ">day</button>
+    <h3>toggle clone</h3>
+    <!-- this keyword -->
+    <button type="button" onclick="
+      // 코딩을 잘 하는 법 : 중복을 제거!
+      var target = document.querySelector('body');
+
+      if(this.textContent === 'day') {
+        target.style.backgroundColor = 'black';
+        target.style.color = 'white';
+        this.textContent = 'night';
+      } else {
+        target.style.backgroundColor = 'white';
+        target.style.color = 'black';
+        this.textContent = 'day';
+      }
+    ">day</button>
   </footer>
   <!-- test area -->
+  <h3>test area</h3>
   <div>
       <div>
         <script>
