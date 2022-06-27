@@ -101,7 +101,46 @@
         }
       }
     </script>
-    <button type="button" onclick="nightDayHandler(self)">day</button>
+    <button type="button" onclick="nightDayHandler(this)">day</button>
+    <!-- object and refactoring -->
+    <h3>object and refactoring</h3>
+    <script>
+      var link = {
+        setColor: function(color) {
+          //link color setting
+          var links = document.querySelectorAll('a');
+
+          links.forEach(el => el.style.color = color);
+        }
+      }
+
+      var body = {
+        setColor: function(color) {
+          document.querySelector('body').style.color = color;
+        },
+        setBackgroundColor: function(color) {
+          document.querySelector('body').style.backgroundColor = color;
+        }
+      }
+
+      function newNightDayHandler(self) {
+
+        if(self.textContent === 'day') {
+          body.setColor('white');
+          body.setBackgroundColor('black');
+          self.textContent = 'night';
+
+          link.setColor('powderblue');
+        } else {
+          body.setColor('black');
+          body.setBackgroundColor('white');
+          self.textContent = 'day';
+
+          link.setColor('blue');
+        }
+      }
+    </script>
+    <button type="button" onclick="newNightDayHandler(this)">day</button>
   </footer>
   <!-- test area -->
   <h3>test area</h3>

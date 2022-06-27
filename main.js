@@ -27,6 +27,80 @@
     default: ~
 */
 
-//  : 반복문
+// Loop : 반복문
+/*
+  while(boolean) {
+
+  }
+
+  for() {
+
+  }
+*/
+
+// Array : 배열
+/*
+  var array = ['1','2','3'];
+
+  //array index
+  console.log(array[0]); => 1
+  console.log(array[1]); => 2
+  console.log(array[2]); => 3
+
+  //iterate array
+  for(var i=0; i < array.length; i++) {
+    ~
+  }
+
+  for(var element of array) {
+    console.log(element) => 1,2,3
+  }
+
+  array.forEach((element, index) => {
+    ~
+  });
+*/
+
+// Function : 함수
+/*
+  //define function
+  function functionName(argument) {
+    return ~;
+  }
+
+  //call function
+  functionName(parameter);
+
+  //function variable
+  var functionName = function() {
+    ~
+  }
+
+  //arrow function
+  var functionName = () => {
+    ~
+  }
+*/
+
+// Object : 객체
+/*
+  var object = {"id":"1352", "name":"root", "age":"secret", "tall":"secret"}
+
+  //object key
+  console.log(array.id); => 1352
+  console.log(array["name"]); => root <= console.log(array.name);
+
+  //iterate obejct
+  for(var key in object) {
+    console.log(key) =>; "id", "name", "age", "tall"
+    console.log(object[key]); => "1352", "root", "secret", "secret"
+  }
+
+  //property & method
+  var object = {"id","i'm property", "func":function() {console.log("i'm method")}}
+
+  property => object.id
+  method => object.func()
+*/
 
 function main() {}
