@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JS PT</title>
+  <script src="./main.js"></script>
 </head>
 <body>
   <header>
@@ -25,8 +26,30 @@
     </div>
   </article>
   <footer>
-    <button type="button">day</button>
-    <button type="button">night</button>
+    <button type="button" onclick="
+      document.querySelector('body').style.backgroundColor = 'black';
+      document.querySelector('body').style.color = 'white';
+    ">day</button>
+    <button type="button" onclick="
+      document.querySelector('body').style.backgroundColor = 'white';
+      document.querySelector('body').style.color = 'black';
+    ">night</button>
   </footer>
+  <!-- test area -->
+  <div>
+      <div>
+        <script>
+          document.write('This code is made by JS ',1+1);
+        </script>
+      </div>
+      <div>
+        This code is made by HTML 1+1
+      </div>
+      <!-- event -->
+      <input type="button" value="hi" onclick="alert('hi')">
+      <input type="text" onchange="alert('changed')">
+      <input type="text" onkeydown="alert('key down!')">
+
+    </div>
 </body>
 </html>
