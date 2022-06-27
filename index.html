@@ -75,6 +75,33 @@
         links.forEach(el => el.style.color = 'blue');
       }
     ">day</button>
+    <!-- function -->
+    <h3>use function</h3>
+    <script>
+      function nightDayHandler(self) {
+        var target = document.querySelector('body');
+
+        //link color setting
+        var links = document.querySelectorAll('a');
+
+        if(self.textContent === 'day') {
+          target.style.backgroundColor = 'black';
+          target.style.color = 'white';
+          self.textContent = 'night';
+
+          //link color setting
+          links.forEach(el => el.style.color = 'powderblue');
+        } else {
+          target.style.backgroundColor = 'white';
+          target.style.color = 'black';
+          self.textContent = 'day';
+
+          //link color setting
+          links.forEach(el => el.style.color = 'blue');
+        }
+      }
+    </script>
+    <button type="button" onclick="nightDayHandler(self)">day</button>
   </footer>
   <!-- test area -->
   <h3>test area</h3>
