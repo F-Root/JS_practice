@@ -103,4 +103,36 @@
   method => object.func()
 */
 
-function main() {}
+var link = {
+  setColor: function (color) {
+    //link color setting
+    var links = document.querySelectorAll('a');
+
+    links.forEach((el) => (el.style.color = color));
+  },
+};
+
+var body = {
+  setColor: function (color) {
+    document.querySelector('body').style.color = color;
+  },
+  setBackgroundColor: function (color) {
+    document.querySelector('body').style.backgroundColor = color;
+  },
+};
+
+function mainJsNightDayHandler(self) {
+  if (self.textContent === 'day') {
+    body.setColor('white');
+    body.setBackgroundColor('black');
+    self.textContent = 'night';
+
+    link.setColor('powderblue');
+  } else {
+    body.setColor('black');
+    body.setBackgroundColor('white');
+    self.textContent = 'day';
+
+    link.setColor('blue');
+  }
+}
