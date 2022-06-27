@@ -56,14 +56,23 @@
       // 코딩을 잘 하는 법 : 중복을 제거!
       var target = document.querySelector('body');
 
+      //link color setting
+      var links = document.querySelectorAll('a');
+
       if(this.textContent === 'day') {
         target.style.backgroundColor = 'black';
         target.style.color = 'white';
         this.textContent = 'night';
+
+        //link color setting
+        links.forEach(el => el.style.color = 'powderblue');
       } else {
         target.style.backgroundColor = 'white';
         target.style.color = 'black';
         this.textContent = 'day';
+
+        //link color setting
+        links.forEach(el => el.style.color = 'blue');
       }
     ">day</button>
   </footer>

@@ -4,7 +4,7 @@
 
 // -- Data type --
 // Primitives : Number, String, Boolean, Null, Undefined, Symbol(es6) => No Reference (원시형)
-// Object, Function => Reference (참조형)
+// Object {key:value}, Array [index(value)], Function => Reference (참조형)
 
 // variable : var, let
 // constant : const
@@ -26,5 +26,7 @@
     case type2 : ~
     default: ~
 */
+
+//  : 반복문
 
 function main() {}
