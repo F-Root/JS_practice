@@ -4,13 +4,13 @@ var kim = {
   first: 10,
   second: 20,
   // sum: function (f, s) {
-  //   return f + s; => 동작O
+  //   return f + s; => 동작O but 이미 객체 내에 명시되어있는 property를 매개변수로 넣어주어야 하는 번거로움이 있음.
   // },
   // sum: function() {
-  //   return first + second; => 동작X
+  //   return first + second; => 동작X undefined가 뜸
   // }
   // sum: function () {
-  //   return kim.first + kim.second; => 동작O
+  //   return kim.first + kim.second; => 동작O but 유연하지가 않음. 객체 이름을 k라고 바꾸면 kim.first는 없는 데이터가 됨. k.first로 바꿔야함.
   // },
   sum: function () {
     return this.first + this.second;
@@ -20,7 +20,7 @@ var kim = {
 // console.log(kim.sum(kim.first, kim.second));
 console.log(kim.sum());
 
-/* constructor (object factory) */
+/* constructor (object factory) -생성자- */
 var lee = {
   name: 'lee',
   first: 10,
@@ -32,7 +32,7 @@ var lee = {
 
 console.log(lee.sum());
 
-//example (Date obj)
+//example of object factory (Date obj)
 var date = new Date('2022-06-27');
 console.log(date.getFullYear());
 console.log(date.getMonth()); //0부터 counting 되기 때문에 1을 더해줘야 한다.
@@ -68,7 +68,40 @@ function Person(name, first, second) {
 }
 
 //새로운 객체 생성
-var kim = new Person('kim', 10, 20);
+var kim = new Person('kim', 10, 20); //함수 호출 앞에 new 키워드를 사용하면 그 함수는 '생성자 함수'라고 불리며 결과로 객체가 생성됨.
 var lee = new Person('lee', 10, 10);
+console.log(kim);
 console.log(kim.sum());
 console.log(lee.sum());
+
+//Math는 객체
+console.log(Math);
+
+//생성자는 함수로 출력
+console.log(Person);
+console.log(Date);
+
+//일반 함수는 생성자 함수와 똑같이 함수로 출력
+function test() {
+  return 'hello';
+}
+console.log(test);
+
+//생성자 함수와 일반 함수 테스트
+function normalTest() {
+  this.test = 'normal';
+  return 'normal';
+}
+
+console.log(normalTest);
+console.log(normalTest()); //리턴 String인 'hello'가 출력이 되긴함.
+var normal = new normalTest();
+console.log(normal); // 객체 출력 (this.test = 'hello' 가 없으면 빈 객체가 출력됨.)
+
+function constructorTest() {
+  this.test = 'constructor';
+}
+
+console.log(constructorTest);
+var constructor = new constructorTest();
+console.log(constructor); // 객체 출력

@@ -20,7 +20,7 @@ let memberObject = {
 console.log(memberObject['host']);
 console.log(memberObject.job);
 
-//add object
+//add, update object
 memberObject.skill = 'JavaScript';
 memberObject.age = 'secret';
 console.log(memberObject.skill);
