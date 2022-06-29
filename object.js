@@ -65,11 +65,13 @@ function Person(name, first, second) {
   this.sum = function () {
     return this.first + this.second;
   };
+  console.log('constructor'); // new 연산자를 통해 객체 인스턴스가 생성될때 호출됨.
 }
 
 //새로운 객체 생성
-var kim = new Person('kim', 10, 20); //함수 호출 앞에 new 키워드를 사용하면 그 함수는 '생성자 함수'라고 불리며 결과로 객체가 생성됨.
-var lee = new Person('lee', 10, 10);
+//함수 호출 앞에 new 키워드를 사용하면 그 함수는 '생성자 함수'라고 불리며 결과로 객체가 생성됨.
+var kim = new Person('kim', 10, 20); // console.log('constructor'); 출력
+var lee = new Person('lee', 10, 10); // console.log('constructor'); 출력
 console.log(kim);
 console.log(kim.sum());
 console.log(lee.sum());
@@ -90,15 +92,17 @@ console.log(test);
 //생성자 함수와 일반 함수 테스트
 function normalTest() {
   this.test = 'normal';
+  console.log('normal function'); // new 연산자를 통해 객체 인스턴스가 생성될때 호출됨.
   return 'normal';
 }
 
-console.log(normalTest);
-console.log(normalTest()); //리턴 String인 'hello'가 출력이 되긴함.
+console.log('함수 normalTest : ', normalTest); // normalTest의 type과 console.log 출력 (괄호를 사용하지 않아도 생성자 함수가 호출된다고 한다. => https://ko.javascript.info/constructor-new 참고 (괄호를 생략해도 된다고 정의되어있다고 함))
+console.log('호출했을때 : ', normalTest()); //리턴 String인 'normal'가 출력이 되긴함.
 var normal = new normalTest();
-console.log(normal); // 객체 출력 (this.test = 'hello' 가 없으면 빈 객체가 출력됨.)
+console.log('객체 인스턴스 : ', normal); // 객체 출력 (this.test = 'normal' 가 없으면 빈 객체가 출력됨.)
 
 function constructorTest() {
+  console.log('constructor function'); // new 연산자를 통해 객체 인스턴스가 생성될때 호출됨.
   this.test = 'constructor';
 }
 
