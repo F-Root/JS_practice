@@ -30,6 +30,12 @@ function Person(name, first, second) {
   this.name = name;
   this.first = first;
   this.second = second;
+
+  // 만약 생성자 함수 내에 메소드가 선언되어있고, prototype내에도 같은 이름의 메소드가 선언되어있다면 객체 인스턴스를 만들었을때는 생성자 함수 내의 메소드가 실행된다.
+  // 즉, 실행순서는
+  // 1. 객체 내부에 sum()이라는 메소드가 선언되어있는지 확인. 있으면 실행.
+  // 2. 없다면 prototype 내부에 sum()이라는 메소드가 선언되어있는지 확인.
+
   // this.sum = function () {
   //   return this.first + this.second;
   // };
@@ -40,6 +46,10 @@ Person.prototype.sum = function () {
 };
 
 var kim = new Person('kim', 10, 20);
+// 아래와 같이 객체 인스턴스에 메소드를 선언한 후 실행해보면
+// 객체 내부에 직접 선언한 메소드가 먼저 실행되는지 prototype이 먼저 실행되는지
+// 순서를 파악할 수 있다.
+// 결과는 객체 내부에 직접 선언한 메소드가 먼저 실행된다.
 kim.sum = function () {
   return 'this : ' + (this.first + this.second);
 };
