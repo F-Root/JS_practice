@@ -22,6 +22,7 @@ console.log(subObj.__proto__);
 
 // 고로 subObj 객체에서 부모객체 superObj 내에 있는 element(property나 method)를 참조할 수 있다.
 console.log(subObj.superVal);
+
 // 만약 subObj에서 superVal이라는 property를 생성한다 해도 prototype의 값은 변하지 않는다.
 subObj.superVal = `Are U super?`;
 console.log(subObj.superVal);
@@ -86,3 +87,40 @@ console.log(lee.__proto__.sum);
 // 고로 객체의 prototype(원형, 부모)를 변경하려면 __proto__를 사용하면 된다.
 // 표준은 아닌데 표준에 가깝고 많이 지원된다고 한다.
 // 어떤 문제를 야기하는지는 아직 잘 모르겠다.
+
+/* __proto__의 대체재 */
+
+var superObj = { superVal: `I'm super` }; // 부모
+var subObj = { subVal: `I'm sub` }; // 자식
+
+console.log(superObj.__proto__);
+console.log(subObj.__proto__);
+
+// 솔직히 __proto__는 발음하기도 어렵고 사용하기가 좀 힘들다.
+// 아래와 같이 __proto__를 이용하여 prototype을 정해주는 것은 직관적이지 않다는 단점이 있다.
+//subObj.__proto__ = superObj;
+//console.log(subObj.__proto__);
+
+// 이럴때 Object.create()라는 메소드를 사용한다.
+subObj = Object.create(superObj);
+// superObj를 subObj의 prototype으로 정한다 라는 의미.
+console.log(subObj.__proto__);
+
+// __proto__를 사용한 것과 동일한 결과를 보여주지는 않는다.
+console.log(subObj.superVal); //__proto__를 사용했을때처럼 prototype의 값 참조가 잘 진행된다.
+console.log(subObj); //하지만 subObj 객체에 Object.create(superObj)의 반환값을 아예 덮어씌워버린 것이기 때문에 기존에 있던 subObj의 subVal 값은 없어지고 subObj는 빈 객체가 된다.
+// 추후에 elements를 추가해줘야한다.
+subObj.subVal = `I'm sub`;
+console.log(subObj);
+// 브라우저 확인용
+debugger;
+
+// 그리고 브라우저 개발자도구로
+// Source tab의 Watch에서 superObj랑 subObj를 추가하고 확인해보면
+// prototype에도 prototype이 존재한다는 것을 알 수 있었다.
+// [[Prototype]]과 __proto__ 속성을 쭉 따라가다보면
+// 가장 내부에 존재하는 __proto__에는 null값이 할당되어있는 것을 알 수 있다.
+
+// 또한 subObj의 prototype을 superObj로 지정해줬기 때문에
+// subObj의 [[Prototype]]과 __proto__ 속성을 확인해보면
+// superVal property가 선언되어 있는 것을 확인할 수 있다.
