@@ -126,7 +126,7 @@ debugger;
 // subObj의 [[Prototype]]과 __proto__ 속성을 확인해보면
 // superVal property가 선언되어 있는 것을 확인할 수 있다.
 
-/* __proto__를 이용하여 상속받기 */
+/* __proto__를 이용하여 객체 상속받기 - class 상속이 아니라는 점이 특징이다. '객체 인스턴스'를 상속받는 것이다. */
 var park = {
   name: 'park',
   first: 10,
