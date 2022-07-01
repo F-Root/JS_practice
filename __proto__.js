@@ -89,6 +89,7 @@ console.log(lee.__proto__.sum);
 // 어떤 문제를 야기하는지는 아직 잘 모르겠다.
 
 /* __proto__의 대체재 */
+// Object.create()
 
 var superObj = { superVal: `I'm super` }; // 부모
 var subObj = { subVal: `I'm sub` }; // 자식
@@ -124,3 +125,45 @@ debugger;
 // 또한 subObj의 prototype을 superObj로 지정해줬기 때문에
 // subObj의 [[Prototype]]과 __proto__ 속성을 확인해보면
 // superVal property가 선언되어 있는 것을 확인할 수 있다.
+
+/* __proto__를 이용하여 상속받기 */
+var park = {
+  name: 'park',
+  first: 10,
+  second: 10,
+  sum: function () {
+    return this.first + this.second;
+  },
+};
+
+// han는 park에 있는 sum을 상속받아서 사용하고 싶다.
+var han = {
+  name: 'han',
+  first: 30,
+  second: 20,
+  avg: function () {
+    return (this.first + this.second) / 2;
+  },
+};
+
+// 그렇다면 __proto__를 이용해 han의 prototype을 park으로 지정해준다.
+// 브라우저 콘솔을 이용해 확인해보면 han의 prototype내에 park의 element(property, method)들이 선언되어 있는 것을 확인할 수 있다.
+han.__proto__ = park;
+
+console.log(han.sum()); // [[Prototype]]내 선언되어있는 sum() 메소드를 호출한다.
+console.log(han.avg());
+
+// Object.create()를 이용해도 가능하다.
+var han = Object.create(park);
+
+// 대신 빈 객체가 되기 때문에 element들을 선언해주어야한다.
+han.name = 'han';
+han.first = 30;
+han.second = 20;
+han.avg = function () {
+  return (this.first + this.second) / 2;
+};
+
+// __proto__를 사용해서 출력했을때와 결과가 같다.
+console.log(han.sum()); // [[Prototype]]내 선언되어있는 sum() 메소드를 호출한다.
+console.log(han.avg());
