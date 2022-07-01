@@ -1,6 +1,8 @@
 /* class */
 // constructor function의 대체재 => es6에서 추가.
 
+// class는 공장 또는 설계도. object(객체)는 물건 또는 사례
+
 class Person {
   // class 내에서는 함수(메소드)를 선언할때 function키워드를 붙이지 않음.(규칙)
   // 그리고 생성자 함수를 선언할때는 무조건 constructor를 붙여야함.(규칙)
@@ -17,6 +19,10 @@ class Person {
   sum() {
     return 'in class : ' + (this.first + this.second);
   }
+
+  // avg() {
+  //   return (this.first + this.second) / 2;
+  // }
 }
 
 // class를 사용할때도 prototype에 메소드를 추가할 수 있다. 허나 권장방식은 아님.
