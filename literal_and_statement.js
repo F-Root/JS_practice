@@ -1,5 +1,5 @@
 /* 함수 선언방식 */
-function Person() {}
+function Person() {} // 이때 이 중괄호는 객체의 {} -> 객체 리터럴 표현식 이다.
 //위 아래는 서로 같다.
 var Person = new Function();
 //즉 JS의 함수는 객체다. 그렇기에 property를 가질 수 있다.
