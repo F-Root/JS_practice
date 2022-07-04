@@ -36,9 +36,9 @@ console.log(kim.__proto__.constructor); //makePerson 생성자 함수를 가리�
 //이는 prototype에서 constructor라는 property가 생성자 함수를 가리킨다는 것을 알 수 있다.
 
 //결론적으로 말하면
-//생성자 함수의 prototype 속성은 해당 생성자의 원형(prototype)을 가리키고(참조한다 - [reference])
-//객체 인스턴스의 __proto__ 속성은 자신을 만든 생성자 함수의 원형(prototype)을 가리킨다(참조한다 - [reference])
-//객체의 원형 즉, prototype은 constructor라는 property로 생성자 함수를 가리킨다(참조한다 - [reference])
+//생성자 함수의 prototype 속성은 해당 생성자의 원형(prototype)을 가리키고(참조한다 - [reference]) - 생성자 함수 : prototype => prototype
+//객체 인스턴스의 __proto__ 속성은 자신을 만든 생성자 함수의 원형(prototype)을 가리킨다(참조한다 - [reference]) - 객체 인스턴스 : __proto__ => prototype
+//객체의 원형 즉, prototype은 constructor라는 property로 생성자 함수를 가리킨다(참조한다 - [reference]) - prototype : constructor => 생성자 함수
 
 //고로 prototype과 __proto__는 모두 객체의 원형을 참조하기 위한 속성이지만
 //prototype은 생성자 함수에서 사용할 수 있는 속성이고
