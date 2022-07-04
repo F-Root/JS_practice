@@ -41,15 +41,22 @@ console.log(PersonPlus.prototype);
 console.log(new PersonPlus());
 
 //__proto__를 사용하는 방법외에 Object.create()를 사용해도 된다.
+//사실 __proto__는 범용적이지만 비표준이기 때문에 Object.create()사용이 권장되긴한다. 하지만 불편하다. 이유는 아래코드를 확인해보면 알 수 있다.
+
 console.log(Object.create(Person.prototype));
+
 //이 방법은 새로운 객체를 하나 생성해서 PersonPlus.prototype에 할당하는 방식이다.
 //하지만 기존 PersonPlus.prototype 내에 있는 객체의 내용이 모두 덮어씌워져 없어진다는 단점이 있다. (constructor()와 avg() 메소드가 없어짐.)
 PersonPlus.prototype = Object.create(Person.prototype);
+
 //그렇기 때문에 constructor()와 avg()메소드를 다시 선언해줘야한다.
 PersonPlus.prototype.constructor = PersonPlus;
 PersonPlus.prototype.avg = function () {
   return (this.first + this.second + this.third) / 3;
 };
+//불편하다... 그래서 그냥 상속을 사용할때는 class를 사용하는 것이 소스도 깔끔해서 직관적이고 편한 방법이라 할 수 있다.
+//하지만 class 내부적으로는 이런 코드들이 동작된다는 것을 알아두면 좋다.
+
 // 브라우저로 테스트해보기
 console.log(PersonPlus.prototype);
 console.log(new PersonPlus());
