@@ -46,3 +46,15 @@ var lee = new Person('lee', 10, 10); // console.log('class'); 출력
 
 console.log(kim.sum());
 console.log(lee.sum());
+
+//JS Class fields(public fields)
+class Car {
+  static hyundai = 'Avante'; //static으로 선언한 변수는 prototype의 constructor에서 확인할 수 있다. & Car.hyundai 라고 호출 가능하다.
+  kia = 'k3'; // 호출되지 않는다. 인스턴스를 생성할때 값을 재할당해주지 않아도 기본값으로 'k3'이 들어가 있는 것을 확인할 수 있다.
+  constructor(benz, bmw, audi, kia) {
+    this.benz = benz;
+    this.bmw = bmw;
+    this.audi = audi;
+    this.kia; //다른 값들은 new Car()로 호출시 매개변수로 값을 전달해주지 않으면 undefined가 뜨지만 kia는 위에서 미리 선언했으므로 'k3'이라는 값이 호출된다.
+  }
+}
